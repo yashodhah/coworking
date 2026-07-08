@@ -1,0 +1,27 @@
+{
+  "manifestVersion": 1,
+  "name": "cws-engineering-workspace",
+  "global": {
+    "pluginMarketplace": "https://github.com/org/plugin-marketplace",
+    "plugins": ["helix@2.1"],
+    "gitHooks": {
+      "pre-commit": ["ggshield secret scan"],
+      "commit-msg": ["commitlint"]
+    }
+  },
+  "roots": {
+    "frontend": {
+      "repo": "https://github.com/org/cws-frontend",
+      "gitHooks": {
+        "pre-push": ["lint", "format-check"]
+      }
+    },
+    "backend": {
+      "repo": "https://github.com/org/cws-bff",
+      "gitHooks": {
+        "pre-commit": ["mvn checkstyle:check"],
+        "pre-push": ["mvn test"]
+      }
+    }
+  }
+}
