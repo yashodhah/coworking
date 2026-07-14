@@ -1,0 +1,35 @@
+{
+  "name": "apm-bootstrap-prototype",
+  "displayName": "APM Bootstrap Prototype",
+  "description": "Throwaway prototype that provisions apm-cli into a private venv and confirms it runs from VS Code.",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "main": "./out/extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "commands": [
+      {
+        "command": "apmBootstrap.setup",
+        "title": "APM Bootstrap: Set Up apm"
+      },
+      {
+        "command": "apmBootstrap.testVersion",
+        "title": "APM Bootstrap: Run apm --version"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.125.0",
+    "@types/node": "^20.11.0",
+    "typescript": "^7.0.2"
+  }
+}
