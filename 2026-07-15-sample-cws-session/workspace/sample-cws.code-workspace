@@ -1,0 +1,48 @@
+{
+	"folders": [
+		{
+			"path": "../ai_scout/copilot-ship"
+		},
+		{
+			"path": "../ai_scout/scout-diaries/atlassian-mcp-server"
+		},
+		{
+			"name": "Agent Customizations (Harness)",
+			"path": "/Users/yashodhah/.coworkspaces/sample-cws"
+		}
+	],
+	"settings": {
+		"chat.instructionsFilesLocations": {
+			"~/.coworkspaces/sample-cws/instructions": true
+		},
+		"chat.promptFilesLocations": {
+			"~/.coworkspaces/sample-cws/prompts": true
+		},
+		"chat.agentFilesLocations": {
+			"~/.coworkspaces/sample-cws/agents": true
+		}
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "SDD: Fetch Jira Issue",
+				"type": "shell",
+				"command": "${workspaceFolder:Agent Customizations (Harness)}/scripts/fetch-jira-issue.sh",
+				"args": ["${input:jiraIssueKey}"],
+				"presentation": {
+					"reveal": "always",
+					"panel": "dedicated"
+				},
+				"problemMatcher": []
+			}
+		],
+		"inputs": [
+			{
+				"id": "jiraIssueKey",
+				"type": "promptString",
+				"description": "Jira issue key (e.g. PROJ-1234)"
+			}
+		]
+	}
+}
